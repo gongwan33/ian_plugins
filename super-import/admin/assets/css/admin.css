@@ -1,0 +1,23 @@
+.remote-database table td{
+    border:solid 1px grey;
+    padding:10px 10px;
+}
+
+.remote-database table{
+    border-collapse:collapse;
+}
+
+.remote-database input[type="button"]{
+    font-size:large;
+    font-weight:bold;
+}
+
+.pagenation{
+    margin-left: 10px;
+    text-decoration:underline;
+}
+
+.pagenation:hover{
+    color: blue;
+    cursor: pointer;
+}

@@ -1,0 +1,116 @@
+.review-header{
+	height:300px;
+	display:block;
+}
+
+.review-header em{
+	font-weight: bold;
+	font-size: medium;
+	font-style: normal;
+}
+
+.review-header a{
+	font-weight: normal;
+	text-decoration: underline;
+}
+
+.text-underline {
+	text-decoration: underline;
+}
+
+.review-header span{
+	font-size: medium;
+}
+
+.sc-leftimg {
+	display:inline-block;
+	height:100%;
+	width: 40%;
+}
+
+.sc-leftimg img {
+	height: 100%;
+	width: 100%; 
+	display:block;
+}
+
+.sc-rightinfo{
+	position:absolute;
+	display:inline-block;
+	height:100%;
+	width: 50%;
+	margin-left: 40px;
+}
+
+.star-rating{
+    vertical-align:top;	
+    display: inline-block;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.star-rating div{
+    display: inline-block;
+}
+
+.full-star:before {
+	color: orange;
+	font-family: FontAwesome;
+	content: "\f005 "; /* full star */
+}
+
+.empty-star:before{
+	color: orange;
+	font-family: FontAwesome;
+	content: "\f006 "; /* empty star */
+}
+
+.half-star {
+	width: 1em;
+	position:relative;
+}
+
+.half-star .fill-star:before{
+	display:block;
+	color: orange;
+	font-family: FontAwesome;
+	content: "\f089 "; /* half star */
+	position: absolute;
+	left:0;
+	top:1px;
+}
+
+.half-star .star-outline:before {
+	display:block;
+	float:left;
+	color: orange;
+	font-family: FontAwesome;
+	content: "\f006 "; /* outline star */
+	position: absolute;
+	left:0;
+	top:1px;
+}
+
+/************************************/
+.top-reviews ul li{
+	list-style-type: none !important;
+}
+
+.prod-item .tr-col-1 {
+	width: 10%;
+	display: inline-block;
+}
+
+.prod-item .tr-col-2 {
+	width: 30%;
+	display: inline-block;
+}
+
+.prod-item .tr-col-2 img{
+	display:block;
+}
+
+.prod-item .tr-col-3 {
+	width: 40%;
+	display: inline-block;
+}

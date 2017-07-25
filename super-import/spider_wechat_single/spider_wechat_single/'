@@ -1,0 +1,32 @@
+# -*- coding: utf-8 -*-
+
+# Define your item pipelines here
+#
+# Don't forget to add your pipeline to the ITEM_PIPELINES setting
+# See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
+from twisted.enterprise import adbapi
+from datetime import datetime
+import MySQLdb
+import MySQLdb.cursors
+
+class SpiderOzdazhePipeline(object):
+    def __init__(self, conn):
+        self.conn = conn
+        self.cursor = self.conn.cursor()
+
+    @classmethod
+    def from_settings(cls, settings):
+        host = settings['MYSQL_HOST'],
+        db = settings['MYSQL_DBNAME'],
+        user = settings['MYSQL_USER'],
+        passwd = settings['MYSQL_PASSWD'],
+
+        now = datetime.utcnow().replace(microsecond=0).isoformat(' ')
+        conn = MySQLdb.connect(host, user, passwd, db, charset="utf8", use_unicode=True)
+        return cls(conn)
+
+    def process_item(self, item, spider):
+        print('process_item=================')
+        conn.excute("""INSERT INTO ozdazhe_data (title, store, category, coupon_code, expire_date, img, dst_url, tags, post_data) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)""", (item['post_title'], item['store'], item['category'], item['coupon_code'], item['expire_date'], item['img'], item['dst_url'], item['tags'], item['post_data']))
+
+        return item

@@ -1,0 +1,30 @@
+.store-img-container {
+    height: 160px;
+    vertical-align: middle;
+}
+
+.store-img-container img{
+    max-height: 130px !important;
+    width: auto !important;
+}
+
+.content-box {
+    overflow: hidden !important;                                                                                                                                                       
+}
+
+.box-holder {
+    width: 99% !important;
+}
+
+.sina-logo {
+    background: url(/wp-content/plugins/wp-connect/images/share/icon16.png?var=20170210) no-repeat 0 -16px;
+    display: inline-block;
+    height: 16px;
+    margin-bottom: -2px;
+    margin-right: 8px;
+    width: 16px;
+}
+
+#sociables {
+    display: inline;
+}
