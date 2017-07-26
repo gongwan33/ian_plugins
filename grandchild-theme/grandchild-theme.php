@@ -49,3 +49,68 @@ function wpc_theme_add_css() {
 	//wp_register_script ('os_js', plugins_url('os.js', __FILE__).'', array(), $timestampjs);
 }
 
+
+function insert_after_post($data, $postarr = null) {
+    //$data['post_content'] .= (implode(',', $data).implode(',',$postattr)."");
+    $dst_url .= $_POST['clpr_coupon_aff_url'];
+    $has_head = preg_replace('/(^http)[\s\S]*/', '\1', $dst_url);
+    if(empty($has_head) || $has_head != 'http') {
+        $dst_url  = 'http://'.$dst_url;
+    }
+    
+    return $data;
+}
+
+//add_filter('wp_insert_post_data', 'insert_after_post');
+
+function gd_query_vars_filter($vars) {
+  $vars[] = 'coupon_url';
+  return $vars;
+}
+add_filter( 'query_vars', 'gd_query_vars_filter' );
+
+function get_postid_by_dst_url($url) {
+    global $wpdb;
+    $sql = $wpdb->prepare('SELECT post_id FROM '.$wpdb->postmeta.' WHERE meta_key="clpr_coupon_aff_url" AND meta_value=%s', $url);
+    $res = $wpdb->get_row($sql);
+    //var_dump($sql);
+    //var_dump($res);
+    return $res->post_id;
+}
+
+global $is_url_parsed;
+$is_url_parsed = false;
+
+add_action( 'parse_query', function (){
+    global $is_url_parsed;
+    if($is_url_parsed) {
+        return;
+    }
+
+    $query = get_query_var('coupon_url');
+    if(!empty($query)) {
+        $is_url_parsed = true;
+
+        $has_head = preg_replace('/(^http)[\s\S]*/', '\1', $query);
+        if(empty($has_head) || $has_head != 'http') {
+            $query  = 'http://'.$query;
+        }
+ 
+        $post_id = get_postid_by_dst_url($query); 
+
+	if(!empty($post_id)) {
+	    $count = get_post_meta( $post_id, 'clpr_coupon_aff_clicks', true );
+	    if ( $count ) {
+	    $count++;
+	    } else {
+	    	$count = 1;
+	    }
+
+	    update_post_meta( $post_id, 'clpr_coupon_aff_clicks', $count );
+	}
+
+        //var_dump($query);
+        header('Location: '.$query);
+        die();
+    }
+});

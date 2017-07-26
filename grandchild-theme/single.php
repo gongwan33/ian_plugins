@@ -23,4 +23,4 @@
 
 </div>
 
-<?php if($rw_blog_page_sidebar!='full-width'){  get_sidebar( 'blog' ); }?>
+<?php if($rw_blog_page_sidebar!='full-width'){ get_sidebar( 'blog' ); }?>

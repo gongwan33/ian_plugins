@@ -53,7 +53,7 @@
 		<div class="author vcard">
 			<a class="url fn n" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" rel="author"><?php the_author(); ?></a>
 		</div>	
-                <div style="float:right;padding-top:6px;"><div class="share_button share_icon_wechat" onclick="wechat_button_click('QRCODE', '<?php echo get_permalink( $post->ID );?>',event)" title="微信" style="display:inline-block;zoom:1.6;"></div><div class="open_social_qrcode" onclick="jQuery(this).hide();"></div><?php wp_social_share();?></div>
+               <div style="float:right;padding-top:6px;"><div class="share_button share_icon_wechat" onclick="wechat_button_click('QRCODE', '<?php echo get_permalink( $post->ID );?>',event)" title="微信" style="display:inline-block;zoom:1.6;"></div><div class="open_social_qrcode" onclick="jQuery(this).hide();"></div><?php wp_social_share();?></div>
           <div class="clear"></div>
 
 	</div>
