@@ -25,6 +25,16 @@ add_filter ('single_template',
 		}
 	});
 
+add_filter ('search_template', 
+	function ($template) { 
+		if(substr($template, -10, 10) == 'search.php') {
+			return plugin_dir_path(__FILE__)."search.php";
+		}
+		else {
+			return plugin_dir_path(__FILE__)."search.php";
+		}
+	});
+
 add_filter ('frontpage_template', 
 	function ($template) { 
 		if(substr($template, -14, 14) == 'front-page.php') {
