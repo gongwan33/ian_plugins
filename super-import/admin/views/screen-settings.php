@@ -450,7 +450,7 @@ if($scrapy_no_data == true) {
             for($i = $start_page; $i <= $end_page ; $i++) {
                 if($i != $now_page) {
 ?>
-            <span class="pagenation" onclick="location.href=location.href.replace(/#.+/g, '').replace(/&pnum[^&]+/g, '')+'&pnum='+'<?php echo $i;?>&spider=dealmoon;"><?php echo $i;?></span>
+            <span class="pagenation" onclick="location.href=location.href.replace(/#.+/g, '').replace(/&pnum[^&]+/g, '')+'&pnum='+'<?php echo $i;?>&spider=dealmoon';"><?php echo $i;?></span>
 <?php 
                 } else {
 ?>
